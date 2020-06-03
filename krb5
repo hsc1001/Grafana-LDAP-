@@ -19,3 +19,34 @@
     admin_server = sme-2012-ad.support.com
     kdc = sme-2012-ad.support.com
   }
+
+
+[libdefaults]
+ dns_lookup_realm = false
+ ticket_lifetime = 24h
+ renew_lifetime = 7d
+ forwardable = true
+ rdns = false
+ #pkinit_anchors = FILE:/etc/pki/tls/certs/ca-bundle.crt
+ default_realm = COELAB.CLOUDERA.COM
+# default_ccache_name = KEYRING:persistent:%{uid}
+
+[realms]
+COELAB.CLOUDERA.COM = {
+kdc = c2218-node1.coelab.cloudera.com
+ admin_server = c2218-node1.coelab.cloudera.com
+ }
+
+[domain_realm]
+.coelab.cloudera.com = COELAB.CLOUDERA.COM
+coelab.cloudera.com = COELAB.CLOUDERA.COM
+
+[root@c2218-node1 ~]# cat /etc/hosts
+127.0.0.1		localhost localhost.localdomain
+172.25.34.156    c2218-node1.coelab.cloudera.com c2218-node1 db-node1
+172.25.37.86    c2218-node2.coelab.cloudera.com c2218-node2
+172.25.33.92    c2218-node3.coelab.cloudera.com c2218-node3
+172.25.37.219    c2218-node4.coelab.cloudera.com c2218-node4
+172.26.66.112 ad-21115.lab.hortonworks.net
+172.26.126.78 sme-2012-ad.support.com ad01.support.com ad01
+[root@c2218-node1 ~]#
