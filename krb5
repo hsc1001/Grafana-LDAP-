@@ -20,6 +20,10 @@
     kdc = sme-2012-ad.support.com
   }
 
+ HADOOP.COM = {
+    admin_server = sme1-2012-ad.support.com
+    kdc = sme-20121-ad.support.com
+  }
 
 [libdefaults]
  dns_lookup_realm = false
